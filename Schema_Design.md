@@ -1,5 +1,4 @@
-#Schema Design
-
+**Schema Design**
 📘 User
 | Field        | Type     | Description                         |
 | ------------ | -------- | ----------------------------------- |

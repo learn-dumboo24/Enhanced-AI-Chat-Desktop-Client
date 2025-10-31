@@ -1,6 +1,6 @@
 # Enhanced-AI-Chat-Desktop-Client
 
-> A fast, ChatGPT-powered desktop client built with **Electron**, **React**, and **MongoDB**, designed for clean, efficient, and focused AI conversations. It features one-level threaded chats, a minimap for quick topic navigation, and a temporary doubts window for instant, one-off queries — all optimized for performance on macOS.
+> A fast, ChatGPT-powered desktop client built with **Electron**, **React**, and **MongoDB**, designed for clean, efficient, and focused AI conversations. It features one-level threaded chats, a minimap for quick topic navigation, and a temporary doubts window for instant, one-off queries — all optimized for performance on Desktop.
 
 ---
 
@@ -10,7 +10,7 @@
 - 🗺️ **Minimap Navigation** – Visual topic overview for quick jumps  
 - 💭 **Temporary Doubts Window** – Instant queries without saving history  
 - ⚡ **Optimized Performance** – Smooth, MongoDB-powered cloud operations  
-- 🖥️ **Platform** – macOS  
+- 🖥️ **Platform** – Desktop  
 
 ---
 

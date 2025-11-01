@@ -42,8 +42,6 @@
 | `_id`        | ObjectId                      | Unique ID for minimap node                 |
 | `userId`     | ObjectId → `User._id`         | Associated user                            |
 | `promptId`   | ObjectId → `ParentPrompt._id` | Reference to a prompt displayed on minimap |
-| `positionX`  | Number                        | X-coordinate in minimap layout             |
-| `positionY`  | Number                        | Y-coordinate in minimap layout             |
 | `topicLabel` | String                        | Title or summary text for the topic        |
 | `isActive`   | Boolean                       | Whether the topic is currently focused     |
 

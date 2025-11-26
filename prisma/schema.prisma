@@ -5,13 +5,58 @@ generator client {
 
 datasource db {
   provider = "mongodb"
-   url = env("DATABASE_URL")
 }
 
 model User {
-  id    String @id @default(auto()) @map("_id") @db.ObjectId
-  name  String
+  userId    String @id @default(auto()) @map("_id") @db.ObjectId
+  name  String?
   email String @unique
-  password String @unique
+  password String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  profilePic String?
+
+  authProviders AuthProvider[]
+  chats Chat[]
+  label Label[]
 }
 
+model AuthProvider {
+  authId    String @id @default(auto()) @map("_id") @db.ObjectId
+  provider String
+  providerId String?
+  accessToken String?
+  refreshToken String?
+
+  userId String @db.ObjectId
+  user User @relation(fields:[userId], references: [userId])
+
+  tokenExpiresAt DateTime?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Chat {
+  chatId String @id @default(auto()) @map("_id") @db.ObjectId
+  role String // user or assistant
+  text String 
+  chatLabel String @db.ObjectId
+
+  parentId String? @db.ObjectId
+
+  userId String @db.ObjectId
+  user User @relation(fields: [userId], references: [userId])
+  
+  createdAt DateTime @default(now())
+}
+
+model Label{
+  labelId String @id @default(auto()) @map("_id") @db.ObjectId
+
+  userId String @db.ObjectId
+  user User @relation(fields: [userId], references: [userId])
+
+  title String 
+  createdAt DateTime @default(now())
+}

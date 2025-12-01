@@ -1,16 +1,21 @@
-import { prisma } from '../lib/prisma'
+import { connectDB } from "../config/db.js";
+import {User, AuthProvider, Chat, Label} from "../models/Models.js"
 
-async function main() {
-  const allUsers = await prisma.user.findMany()
-  console.log('All users:', JSON.stringify(allUsers, null, 2))
+async function startServer(){
+  await connectDB();
+  checkAll();
 }
+startServer();
 
-main()
-  .then(async () => {
-    await prisma.$disconnect()
-  })
-  .catch(async (e) => {
-    console.error(e)
-    await prisma.$disconnect()
-    process.exit(1)
-  })
+async function checkAll(){
+  const users = await User.find();
+  const providers = await AuthProvider.find();
+  const chats = await Chat.find();
+  const labels = await Label.find();
+
+  console.log("users: ", users);
+  console.log("providers: ", providers);
+  console.log("chats: ", chats);
+  console.log("labels: ", labels);
+
+}

@@ -1,9 +1,20 @@
-```
-npm install
-npm run dev
+For running the project locally, 
+
+clone the project
+
+```bash 
+git clone <URL>
 ```
 
+install dependencies 
+
+```bash
+npm i 
 ```
-open http://localhost:3000
+
+run the script.ts file
+
+```bash
+npx tsx src/script.ts
 ```
-open in package.json is added by cursor 
+

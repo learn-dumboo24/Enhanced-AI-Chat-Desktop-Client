@@ -14,12 +14,3 @@ const labelSchema = new Schema({
 export const Label = model<ILabel>("Label",labelSchema);
 
 
-// model Label{
-//   labelId String @id @default(auto()) @map("_id") @db.ObjectId
-
-//   userId String @db.ObjectId
-//   user User @relation(fields: [userId], references: [userId])
-
-//   title String 
-//   createdAt DateTime @default(now())
-// }

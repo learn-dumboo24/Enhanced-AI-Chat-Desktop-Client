@@ -85,5 +85,4 @@ const registerHandler = async(c: Context, next: Next) => {
     }
 }
 
-
 export default registerHandler; 

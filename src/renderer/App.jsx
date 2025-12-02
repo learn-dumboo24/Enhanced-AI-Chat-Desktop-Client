@@ -9,7 +9,7 @@ import { useChat } from './context/ChatContext';
 function App() {
     const { setDoubtsOpen, apiKey, setApiKey } = useChat();
     const [showSettings, setShowSettings] = useState(false);
-    const [isLoggedIn, setIsLoggedIn] = useState(true);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     if (!isLoggedIn) {
         return <Login onLogin={() => setIsLoggedIn(true)} />;

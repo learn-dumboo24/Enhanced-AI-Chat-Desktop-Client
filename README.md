@@ -35,6 +35,32 @@
 
 ---
 
+## 🚀 Running the Frontend
+
+We've made it super easy to get started. Since this is an Electron app with a React frontend, you'll need to run both the renderer (React) and the main process (Electron).
+
+### Prerequisites
+- Node.js (v16 or higher recommended)
+- npm or yarn
+
+### Setup & Run
+1.  **Install Dependencies**:
+    ```bash
+    npm install
+    ```
+2.  **Start Development Server**:
+    ```bash
+    npm run dev
+    ```
+    This command runs `vite` for the frontend and `electron` simultaneously. You'll see the window pop up!
+
+### 📖 Frontend Deep Dive
+Want to know more about the design philosophy, component structure, and the "human" side of our code?  
+👉 **[Read our Frontend Guide](FRONTEND_DETAILS.md)**
+
+
+---
+
 ## 🧱 Project Structure
 ```
 Enhanced-AI-Chat-Desktop-Client/

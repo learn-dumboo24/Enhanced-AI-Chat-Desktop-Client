@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 // It schedule the request until connection is made if the connection got broke. we don't want pending request to get scheduled.
-mongoose.set('bufferCommands', false); 
+// mongoose.set('bufferCommands', false); 
 
 const DATABASE_URL:string = process.env.DATABASE_URL || "";
 const connectDB = async(): Promise<void> =>{

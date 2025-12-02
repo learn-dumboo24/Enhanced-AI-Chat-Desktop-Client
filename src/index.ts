@@ -1,9 +1,16 @@
 import { serve } from '@hono/node-server';
 import { Hono } from 'hono';
 import registerHandler from './auth/register.js';
+import { connectDB } from '../config/db.js';
+import { User } from '../models/User.js';
+connectDB();
+
 const app = new Hono()
-
-
+// const fun = async()=>{
+//   const user = await User.deleteMany();
+//   console.log(user);
+// }
+// fun();
 
 app.post('/login', (c) => {
   return c.text('You are logged in!')

@@ -2,18 +2,23 @@ import type { Context, Next } from 'hono';
 import  nodemailer  from 'nodemailer';
 import { Redis } from 'ioredis'; //brew services start redis, brew services stop redis, redis-cli FLUSHALL(erase data)
 import otpGenerator  from 'otp-generator';
+import dotenv from "dotenv";
+import {hash} from "bcryptjs";
+import { User } from '../../models/Models.js';
+
+dotenv.config();
 
 const redis = new Redis();
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: '', //mai nhi bataunga 
-        pass: '' // hehe
+        user: process.env.NODEMAILER_USER,
+        pass: process.env.NODEMAILER_PASS 
     }
 })
 
 const registerHandler = async(c: Context, next: Next) => {
-    const { email, otp } = await c.req.json()
+    const { email, password, otp } = await c.req.json()
 
     if (!email) {
         return c.json({ message: "Email is required" }, 400);
@@ -54,13 +59,31 @@ const registerHandler = async(c: Context, next: Next) => {
         if (storedOtp !== otp){
             return c.json({message: "dubara kosis kr oyeeee"}, 400)
         }
-        await redis.del(email)
         
-        return c.json({
-            message: "You are Verified!"
-        })
+        let hashPass;
+        try{
+            hashPass = await hash(password, 10);
+            console.log("hashed Pass: ", hashPass);
+            
+        }catch(err){
+            console.log(`Error while hashing: ${err}`);
+        }
+        
+        try{
+            const user = await User.findOne({email:email});
+            if(user){
+                return c.json({success:false, error:"User already exist, go to login page."})
+            }
+            await User.create({email:email, password:hashPass})
+            await redis.del(email)
+            return c.json({success:true, message: "User Created successfully!"})
+
+        }catch(err){
+            console.log(`Error adding user in database: ${err}`)
+            return c.json({success:false, message: `Error adding user in database: ${err}` }, 500)
+        }
     }
 }
 
 
-export default registerHandler;
+export default registerHandler; 

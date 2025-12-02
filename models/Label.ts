@@ -11,6 +11,6 @@ const labelSchema = new Schema({
     title: { type: String, required: true },
 },{timestamps:true})
 
-export const Label = model<ILabel>("Label",labelSchema);
+export const Label = model<ILabel>("labels",labelSchema);
 
 

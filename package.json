@@ -9,6 +9,8 @@
   "dependencies": {
     "@hono/node-server": "^1.19.6",
     "@prisma/client": "6.19",
+    "@types/bcryptjs": "^2.4.6",
+    "bcryptjs": "^3.0.3",
     "dotenv": "^17.2.3",
     "hono": "^4.10.7",
     "ioredis": "^5.8.2",

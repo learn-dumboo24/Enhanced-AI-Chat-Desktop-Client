@@ -25,4 +25,4 @@ const AuthProviderSchema = new Schema<IAuthProvider>({
 {timestamps:true}
 )
 
-export const AuthProvider = model<IAuthProvider>("AuthProvider", AuthProviderSchema);
+export const AuthProvider = model<IAuthProvider>("authproviders", AuthProviderSchema);

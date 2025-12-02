@@ -11,11 +11,16 @@
     "@prisma/client": "6.19",
     "dotenv": "^17.2.3",
     "hono": "^4.10.7",
+    "ioredis": "^5.8.2",
     "mongoose": "^9.0.0",
-    "open": "^10.2.0"
+    "nodemailer": "^7.0.11",
+    "open": "^10.2.0",
+    "otp-generator": "^4.0.1"
   },
   "devDependencies": {
     "@types/node": "^24.10.1",
+    "@types/nodemailer": "^7.0.4",
+    "@types/otp-generator": "^4.0.2",
     "tsx": "^4.7.1",
     "typescript": "^5.8.3"
   }

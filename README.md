@@ -12,9 +12,8 @@ install dependencies
 npm i 
 ```
 
-run the script.ts file
+run backend
 
 ```bash
-npx tsx src/script.ts
+npm run dev
 ```
-
